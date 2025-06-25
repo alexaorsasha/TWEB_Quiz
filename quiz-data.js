@@ -2276,7 +2276,235 @@ let quizData = [
             "200 OK"
         ],
         correct: "401 UNAUTHORIZED"
+    },
+    {
+        question: "Quale tag HTML viene usato per creare un modulo di input dati?",
+        options: [
+            "<div>",
+            "<form>",
+            "<input>",
+            "<section>"
+        ],
+        correct: "<form>"
+    },
+    {
+        question: "Qual è lo scopo dell'attributo 'name' all'interno di un elemento input HTML?",
+        options: [
+            "Indica il tipo di input",
+            "Dà un nome visivo al campo",
+            "Associa un'etichetta al campo",
+            "Identifica il campo nei dati inviati al server"
+        ],
+        correct: "Identifica il campo nei dati inviati al server"
+    },
+    {
+        question: "Quale metodo JavaScript è usato per selezionare un elemento per ID dal DOM?",
+        options: [
+            "document.querySelectorAll()",
+            "document.getElementById()",
+            "document.selectById()",
+            "document.getElementsByName()"
+        ],
+        correct: "document.getElementById()"
+    },
+    {
+        question: "Quale evento JavaScript si attiva quando un utente fa clic su un elemento?",
+        options: [
+            "hover",
+            "change",
+            "click",
+            "submit"
+        ],
+        correct: "click"
+    },
+    {
+        question: "Cosa restituisce la funzione fetch() in JavaScript?",
+        options: [
+            "Una funzione asincrona",
+            "Una promessa (Promise)",
+            "Un oggetto JSON",
+            "Un risultato immediato"
+        ],
+        correct: "Una promessa (Promise)"
+    },
+    {
+        question: "Qual è lo scopo della funzione 'addEventListener' in JavaScript?",
+        options: [
+            "Cambiare lo stile di un elemento",
+            "Creare un nuovo elemento DOM",
+            "Gestire eventi su un elemento",
+            "Rendere un elemento visibile"
+        ],
+        correct: "Gestire eventi su un elemento"
+    },
+    {
+        question: "Quale metodo HTTP viene comunemente usato per inviare dati a un server?",
+        options: [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        correct: "POST"
+    },
+    {
+        question: "Cosa significa che HTTP è un protocollo 'stateless'?",
+        options: [
+            "Ricorda lo stato della sessione",
+            "Non mantiene informazioni tra richieste",
+            "È basato su stato persistente",
+            "Funziona solo con autenticazione"
+        ],
+        correct: "Non mantiene informazioni tra richieste"
+    },
+    {
+        question: "Quale status code HTTP indica che una risorsa non è stata trovata?",
+        options: [
+            "200",
+            "403",
+            "404",
+            "500"
+        ],
+        correct: "404"
+    },
+    {
+        question: "Quali sono i tre livelli dell’architettura 3-tier di un'applicazione web?",
+        options: [
+            "HTML, CSS, JS",
+            "Client, Server, Internet",
+            "UI, Business Logic, Database",
+            "Browser, Server, API"
+        ],
+        correct: "UI, Business Logic, Database"
+    },
+    {
+        question: "Quali sono i tre stati principali di una Promise in JavaScript?",
+        options: [
+            "loading, loaded, error",
+            "ready, running, done",
+            "pending, fulfilled, rejected",
+            "open, processing, closed"
+        ],
+        correct: "pending, fulfilled, rejected"
+    },
+    {
+        question: "Qual è la differenza tra gli operatori == e === in JavaScript?",
+        options: [
+            "Nessuna, sono equivalenti",
+            "== confronta valori, === confronta valori e tipi",
+            "=== è più veloce di ==",
+            "== confronta solo numeri, === confronta solo stringhe"
+        ],
+        correct: "== confronta valori, === confronta valori e tipi"
+    },
+    {
+        question: "Cos'è il CORS (Cross-Origin Resource Sharing) e perché è importante nelle applicazioni web?",
+        options: [
+            "Un metodo per crittografare i dati",
+            "Una tecnica per memorizzare dati nel browser",
+            "Un meccanismo per controllare le richieste tra origini diverse",
+            "Un linguaggio di programmazione per il server"
+        ],
+        correct: "Un meccanismo per controllare le richieste tra origini diverse"
+    },
+    {
+        question: "Qual è lo scopo dell'annotazione @Service in una applicazione Spring?",
+        options: [
+            "Identificare un controller REST",
+            "Definire un componente per la logica di business",
+            "Configurare un endpoint HTTP",
+            "Dichiarare un'entità del database"
+        ],
+        correct: "Definire un componente per la logica di business"
+    },
+    {
+        question: "A cosa serve l'annotazione @CrossOrigin in un'applicazione Spring Boot?",
+        options: [
+            "Gestire la persistenza dei dati",
+            "Abilitare l'accesso da domini esterni (CORS)",
+            "Definire un servizio web REST",
+            "Configurare un database"
+        ],
+        correct: "Abilitare l'accesso da domini esterni (CORS)"
+    },
+    {
+        question: "Cosa rappresenta l'annotazione @Repository in un'applicazione Spring?",
+        options: [
+            "Una classe che gestisce le operazioni di accesso al database",
+            "Un componente di interfaccia utente",
+            "Un gestore di richieste HTTP",
+            "Un modulo di sicurezza"
+        ],
+        correct: "Una classe che gestisce le operazioni di accesso al database"
+    },
+    {
+        question: "Cosa fa l'annotazione @RestController in un'applicazione Spring Boot?",
+        options: [
+            "Crea un client HTTP",
+            "Definisce un controller REST che restituisce direttamente dati JSON/XML",
+            "Configura la base dati",
+            "Avvia il ciclo di vita di un thread"
+        ],
+        correct: "Definisce un controller REST che restituisce direttamente dati JSON/XML"
+    },
+    {
+        question: "Quali sono i principali tipi primitivi in JavaScript?",
+        options: [
+            "String, Number, Object, Function",
+            "String, Number, Boolean, Null, Undefined, Symbol, BigInt",
+            "Integer, Float, Boolean, Array",
+            "Object, Class, Struct, Null"
+        ],
+        correct: "String, Number, Boolean, Null, Undefined, Symbol, BigInt"
+    },
+    {
+        question: "Quale metodo JavaScript ricarica la pagina corrente?",
+        options: [
+            "location.refresh()",
+            "window.load()",
+            "location.reload()",
+            "document.refreshPage()"
+        ],
+        correct: "location.reload()"
+    },
+    {
+        question: "Come gestisce JavaScript l'esecuzione concorrente?",
+        options: [
+            "Tramite multithreading nativo",
+            "Attraverso un thread pool",
+            "Attraverso il suo event loop e chiamate asincrone",
+            "Con processi separati per ogni funzione"
+        ],
+        correct: "Attraverso il suo event loop e chiamate asincrone"
+    },
+    {
+        question: "Cosa succede all'ambiente JavaScript quando si fa il refresh della pagina?",
+        options: [
+            "Le variabili globali persistono in memoria",
+            "Il DOM viene ricostruito e lo script ricomincia da capo",
+            "Vengono mantenuti i listener degli eventi",
+            "La cache del browser viene cancellata automaticamente"
+        ],
+        correct: "Il DOM viene ricostruito e lo script ricomincia da capo"
+    },
+    {
+        question: "Quali tipi di thread JavaScript può utilizzare e chi li crea?",
+        options: [
+            "Main thread e web worker, creati dal browser",
+            "Main thread e worker, creati dal programmatore comandi nativi",
+            "Solo main thread, creato dal runtime V8",
+            "Main thread e backup thread, creati automaticamente dal browser"
+        ],
+        correct: "Main thread e web worker, creati dal browser"
+    },
+    {
+        question: "Quando vengono creati i Web Worker in un'applicazione web?",
+        options: [
+            "Automaticamente all’apertura della pagina",
+            "Solo quando si chiama `new Worker(\"file.js\")`",
+            "All’avvio del browser",
+            "Quando si verifica un evento specifico (es. `onclick`), ma non con nuove istanze"
+        ],
+        correct: "Solo quando si chiama `new Worker(\"file.js\")`"
     }
-
-
 ]
