@@ -720,7 +720,7 @@ let quizData = [
     correct: "L'URL assoluto specifica il path completo a partire dalla radice del dominio."
   },
   {
-    question: "Quale attributo deve essere presente in tutti gli elementi <input>?",
+    question: "Quale attributo deve essere presente in tutti gli elementi con tag input ?",
     options: ["value", "type", "id", "name"],
     correct: "name"
   },
