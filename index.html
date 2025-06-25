@@ -10,8 +10,9 @@
 <!-- Schermata iniziale -->
 <div class="start-btn-container">
   <h2>Quiz di TWEB</h2>
-  <p>Benvenuto! Premi il pulsante per iniziare.</p>
-  <button class="start-btn">Inizia Quiz</button>
+  <p>Benvenuto! Scegli il tipo di esercitazione:</p>
+  <button class="start-btn">Quiz a scelta multipla</button>
+  <button class="open-questions-btn">Domande aperte</button>
 </div>
 
 <!-- Contenitore quiz -->
@@ -25,8 +26,8 @@
 
   <!-- Bottoni navigazione -->
   <div class="nav-buttons">
-    <button class="prev-btn">Prev</button>
-    <button class="next-btn">Next</button>
+    <button class="prev-btn">Quiz Precedente</button>
+    <button class="next-btn">Quiz Successivo</button>
   </div>
 
   <!-- Contatore punteggio -->
@@ -41,7 +42,31 @@
 <!-- Risultati -->
 <div class="quiz-result" style="display: none;"></div>
 
+<!-- Domande aperte -->
+<div class="open-questions-container" style="display: none;">
+  <div class="top-bar">
+    <button class="home-btn">Home</button>
+  </div>
+  <h1>Esercitazione con Domande Aperte</h1>
 
+  <div class="open-question-container">
+    <h2 class="open-question"></h2>
+    <textarea class="answer-input" placeholder="Scrivi la tua risposta qui..."></textarea>
+    <button class="submit-answer">Invia risposta</button>
+    <div class="feedback" style="display: none;"></div>
+  </div>
+
+  <!-- Bottoni navigazione -->
+  <div class="nav-buttons">
+    <button class="prev-open-btn">Domanda precedente</button>
+    <button class="next-open-btn">Domanda successiva</button>
+  </div>
+
+  <div class="open-question-nav"></div>
+</div>
+
+<script src="quiz-data.js"></script>
+<script src="open-questions-data.js"></script>
 <script src="main.js" defer></script>
 </body>
 </html>

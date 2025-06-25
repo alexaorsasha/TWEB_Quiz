@@ -216,48 +216,130 @@
   cursor: pointer;
 }
 
+.nav-buttons button:disabled {
+  background-color: #cccccc; /* Un grigio chiaro */
+  color: #666666; /* Testo grigio scuro */
+  border-color: #999999; /* Bordo grigio */
+  cursor: not-allowed; /* Cursore che indica che l'azione non è permessa */
+  opacity: 0.6; /* Rendi leggermente trasparente */
+  box-shadow: none; /* Rimuovi l'ombra se presente */
+}
+
+
 .question-nav {
-  display: grid;
-  grid-template-columns: repeat(15, 1fr);
-  gap: 5px;
+  display: flex; /* Cambiato da grid a flex per uniformità con open-question-nav */
+  flex-wrap: wrap; /* Permette ai pallini di andare a capo */
+  justify-content: center; /* Centra i pallini */
+  gap: 8px; /* Spazio tra i pallini */
   margin: 20px auto;
   max-width: 100%;
-  overflow-x: auto;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: #e6f2ff; /* Sfondo chiaro per la barra di navigazione */
   border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .nav-dot {
-  width: 30px;
-  height: 30px;
+  width: 35px; /* Dimensioni uguali a open-nav-dot */
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background-color: #fff;
-  border: 1px solid #ddd;
-  font-size: 12px;
+  border: 2px solid #a62269; /* Bordo colorato come il tema */
+  font-size: 14px;
   font-weight: bold;
+  color: #a62269; /* Colore del numero */
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .nav-dot:hover {
-  background-color: #e0e0e0;
+  background-color: #ffe0f0; /* Effetto hover più evidente */
+  border-color: #a62269;
 }
 
+/* Stili per i pallini del quiz in base alla correttezza */
 .nav-dot.correct {
-  background-color: #4caf50;
+  background-color: #4caf50; /* Verde per le risposte corrette */
   color: white;
   border-color: #4caf50;
 }
 
 .nav-dot.incorrect {
-  background-color: #f44336;
+  background-color: #f44336; /* Rosso per le risposte sbagliate */
   color: white;
   border-color: #f44336;
 }
+
+/* ... (Il resto del tuo CSS, incluse le nuove classi per il feedback, va qui sotto) ... */
+
+/* Stili per le domande aperte - Assicurati che questi siano già presenti o aggiungili */
+.open-questions-container {
+  font-family: "Roboto", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  display: none;
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ... (tutti gli stili per .open-question-container, .answer-input, ecc.) ... */
+
+.open-question-nav {
+  display: flex; /* Già flex, mantienilo per coerenza */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px auto;
+  max-width: 100%;
+  padding: 10px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.open-nav-dot {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #a62269;
+  font-size: 14px;
+  font-weight: bold;
+  color: #a62269;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.open-nav-dot:hover {
+  background-color: #ffe0f0;
+  border-color: #a62269;
+}
+
+/* Lo stile 'answered' per i pallini delle domande aperte */
+/* Puoi anche aggiungere .correct e .incorrect se la logica di valutazione delle domande aperte lo consente */
+.open-nav-dot.answered {
+  background-color: #4caf50; /* Verde per le domande risposte */
+  color: white;
+  border-color: #4caf50;
+}
+
+/* Se in futuro implementi valutazione in open-questions, puoi usare anche questi */
+.open-nav-dot.incorrect {
+  background-color: #f44336; /* Rosso per risposte aperte considerate errate */
+  color: white;
+  border-color: #f44336;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
@@ -276,4 +358,249 @@
   .question-nav {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.open-questions-container {
+  font-family: "Roboto", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  display: none; /* Rimane display none per essere gestito via JS */
+  background-color: #f0f8ff; /* Un leggero colore di sfondo per il contenitore principale */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.open-questions-container h1 {
+  font-size: 32px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.open-question-container {
+  background: #d0ecff; /* Colore di sfondo simile alla domanda del quiz */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.open-question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #333; /* Colore del testo */
+  font-weight: bold; /* Rendi il testo della domanda più in evidenza */
+}
+
+.answer-input {
+  width: calc(100% - 24px); /* Sottrae il padding per la larghezza completa */
+  height: 200px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #a62269; /* Bordo colorato come i bottoni del quiz */
+  border-radius: 8px;
+  resize: vertical;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.submit-answer {
+  background: #a62269; /* Colore simile ai bottoni del quiz */
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  font-size: 18px; /* Leggermente più grande */
+  border-radius: 5rem; /* Bordi arrotondati */
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 20px;
+  transition: transform 0.2s ease; /* Effetto hover */
+}
+
+.submit-answer:hover {
+  transform: scale(0.98);
+}
+
+/* Stili per i bottoni di navigazione (Domanda precedente/successiva) */
+.open-questions-container .nav-buttons {
+  display: flex;
+  justify-content: space-around; /* Distribuisce lo spazio tra i bottoni */
+  gap: 20px; /* Spazio tra i bottoni */
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.open-questions-container .nav-buttons button {
+  background: #222; /* Nero come i bottoni next/prev del quiz */
+  color: #fff;
+  border: none;
+  padding: 12px 25px; /* Padding più generoso */
+  font-size: 16px; /* Dimensione del font */
+  border-radius: 5rem; /* Bordi arrotondati */
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  flex-grow: 1; /* Permette ai bottoni di espandersi */
+  max-width: 250px; /* Limita la larghezza massima */
+  transition: transform 0.2s ease;
+}
+
+.open-questions-container .nav-buttons button:hover {
+  transform: scale(0.98);
+}
+
+.open-questions-container .nav-buttons button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none; /* Nessun effetto hover se disabilitato */
+}
+
+/* Stile per i pallini di navigazione delle domande aperte */
+.open-question-nav {
+  display: flex; /* Cambiato da grid a flex per un layout più semplice sui pallini */
+  flex-wrap: wrap; /* Permette ai pallini di andare a capo */
+  justify-content: center; /* Centra i pallini */
+  gap: 8px; /* Spazio tra i pallini */
+  margin: 20px auto;
+  max-width: 100%;
+  padding: 10px;
+  background-color: #e6f2ff; /* Sfondo chiaro per la barra di navigazione */
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.open-nav-dot {
+  width: 35px; /* Leggermente più grandi */
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #a62269; /* Bordo colorato come il tema */
+  font-size: 14px;
+  font-weight: bold;
+  color: #a62269; /* Colore del numero */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.open-nav-dot:hover {
+  background-color: #ffe0f0; /* Effetto hover più evidente */
+  border-color: #a62269;
+}
+
+.open-nav-dot.answered {
+  background-color: rgba(166, 34, 105, 0.35); /* Verde per le domande risposte */
+  color: white;
+  border-color: #a62269;
+}
+
+/* Stili per la top-bar delle domande aperte (con il bottone Home) */
+.open-questions-container .top-bar {
+  display: flex;
+  justify-content: flex-end; /* Sposta il bottone Home a destra */
+  margin-bottom: 20px;
+}
+
+.open-questions-container .home-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 8px 20px; /* Padding più compatto */
+  font-size: 14px;
+  border-radius: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin: 0; /* Rimuove margini extra se presenti */
+  position: static; /* Rimuove il posizionamento assoluto se ereditato */
+}
+
+.open-questions-container .home-btn:hover {
+  transform: scale(0.95);
+}
+
+/* General button style from quiz for start button */
+.start-btn-container .open-questions-btn {
+  background: #a62269; /* Colore simile ai bottoni del quiz */
+  color: #fff;
+  padding: 8px 32px;
+  border-radius: 8px;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 20px; /* Spazio tra i due bottoni di inizio */
+  transition: transform 0.2s ease;
+}
+
+.start-btn-container .open-questions-btn:hover {
+  transform: scale(0.98);
+}
+
+.feedback.info {
+  background: rgba(173, 216, 230, 0.2); /* Un blu chiaro */
+  border: 1px solid #87ceeb; /* Bordo blu chiaro */
+  color: #004d66; /* Testo blu scuro per leggibilità */
+  padding: 20px; /* Aumenta il padding generale */
+  border-radius: 10px; /* Bordo leggermente più arrotondato */
+  font-size: 20px;
+}
+
+.feedback-section {
+  margin-bottom: 15px; /* Spazio tra le due sezioni (tua risposta e risposta modello) */
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo leggermente bianco per le sezioni interne */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.feedback-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em; /* Un po' più piccolo del testo normale */
+  color: #a62269; /* Colore del tema */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Una linea sotto il titolo */
+  padding-bottom: 5px;
+}
+
+.feedback-section p {
+  margin: 0;
+  white-space: pre-wrap; /* Mantiene i ritorni a capo e gli spazi, utile per risposte lunghe */
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-response {
+  /* Stili specifici per la tua risposta, se vuoi differenziarli ulteriormente */
+}
+
+.model-response {
+  /* Stili specifici per la risposta modello, se vuoi differenziarli ulteriormente */
+  background-color: rgba(240, 255, 240, 0.7); /* Un verde molto chiaro per la risposta modello */
+  border-color: rgba(76, 175, 80, 0.2); /* Bordo leggermente verde */
+}
+
+.feedback-instruction {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
 }
