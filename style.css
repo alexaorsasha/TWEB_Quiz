@@ -146,7 +146,7 @@
   background: #a62269;
   color: #fff;
   padding: 8px;
-  border-radius: 8px;
+
   font-weight: bold;
 }
 
@@ -217,35 +217,63 @@
 }
 
 .question-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 12px;
-  border: 2px solid #ffffff;
-  border-radius: 12px;
-  background-color: #b58ba2;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 5px;
+  margin: 20px auto;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
 }
 
-
 .nav-dot {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #ffffff;
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  font-size: 12px;
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-dot:hover {
+  background-color: #e0e0e0;
 }
 
 .nav-dot.correct {
-  background-color: #6cc070;
-  color: #fff;
+  background-color: #4caf50;
+  color: white;
   border-color: #4caf50;
 }
 
 .nav-dot.incorrect {
-  background-color: #e63946;
-  color: #fff;
-  border-color: #c82333;
+  background-color: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .question-nav {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .question-nav {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .question-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
