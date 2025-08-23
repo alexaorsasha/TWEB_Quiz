@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz TWEB</title>
   <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
 <!-- Schermata iniziale -->
@@ -36,7 +37,18 @@
     <span class="incorrect-counter">❌ 0</span>
   </div>
 
-  <div class="question-nav"></div>
+  <div class="question-controls">
+    <div class="question-picker">
+      <label for="questionSelect">Vai alla domanda:</label>
+      <select id="questionSelect"></select>
+    </div>
+
+    <details class="dots-collapsible">
+      <summary>Mostra numeri</summary>
+      <div class="question-nav"></div>
+    </details>
+  </div>
+
 </div>
 
 <!-- Risultati -->
@@ -62,7 +74,19 @@
     <button class="next-open-btn">Domanda successiva</button>
   </div>
 
-  <div class="open-question-nav"></div>
+  <div class="question-controls">
+    <div class="question-picker">
+      <label for="openQuestionSelect">Vai alla domanda:</label>
+      <select id="openQuestionSelect"></select>
+    </div>
+
+    <details class="dots-collapsible">
+      <summary>Mostra numeri</summary>
+      <div class="open-question-nav"></div>
+    </details>
+  </div>
+
+
 </div>
 
 <script src="quiz-data.js"></script>

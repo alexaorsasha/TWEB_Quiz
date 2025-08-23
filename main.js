@@ -121,6 +121,7 @@ const createQuestion = () => {
 
   updateScoreCounters();
   generateQuestionNav();
+  populateQuestionSelect()
 };
 
 const retakeQuiz = () => {
@@ -225,6 +226,36 @@ const generateQuestionNav = () => {
   }
 };
 
+const populateQuestionSelect = () => {
+  const sel = document.getElementById("questionSelect");
+  if (!sel) return;
+  sel.innerHTML = "";
+  for (let i = 0; i < MAX_QUESTIONS; i++) {
+    const opt = document.createElement("option");
+    const stored = localStorage.getItem(`userAnswer_${i}`);
+    const prefix = stored ? (stored === quizData[i].correct ? "✔ " : "✘ ") : "";
+    opt.value = i;
+    opt.textContent = `${prefix}Domanda ${i + 1}`;
+    if (i === questionNumber) opt.selected = true;
+    sel.appendChild(opt);
+  }
+};
+
+const populateOpenQuestionSelect = () => {
+  const sel = document.getElementById("openQuestionSelect");
+  if (!sel) return;
+  sel.innerHTML = "";
+  for (let i = 0; i < MAX_OPEN_QUESTIONS; i++) {
+    const answered = localStorage.getItem(`openAnswer_${i}`) ? "• " : "";
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = `${answered}Domanda ${i + 1}`;
+    if (i === currentOpenQuestionIndex) opt.selected = true;
+    sel.appendChild(opt);
+  }
+};
+
+
 // --- Funzioni per le Domande Aperte ---
 
 const displayOpenQuestion = () => {
@@ -236,6 +267,7 @@ const displayOpenQuestion = () => {
   nextOpenBtn.disabled = currentOpenQuestionIndex === MAX_OPEN_QUESTIONS - 1;
 
   generateOpenQuestionNavDots(); // Genera i "pallini" di navigazione per le domande aperte
+  populateOpenQuestionSelect(); // Popola il select delle domande aperte
 };
 
 const submitAnswer = () => {
@@ -368,4 +400,15 @@ document.addEventListener("DOMContentLoaded", () => {
   quizResult.style.display = "none";
   openQuestionsContainer.style.display = "none";
   document.querySelector(".score-counter").style.display = "none";
+});
+
+document.addEventListener("change", (e) => {
+  if (e.target && e.target.id === "questionSelect") {
+    questionNumber = parseInt(e.target.value, 10) || 0;
+    createQuestion();
+  }
+  if (e.target && e.target.id === "openQuestionSelect") {
+    currentOpenQuestionIndex = parseInt(e.target.value, 10) || 0;
+    displayOpenQuestion();
+  }
 });
