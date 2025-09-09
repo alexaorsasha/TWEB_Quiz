@@ -283,15 +283,16 @@ const submitAnswer = () => {
   const correctAnswer = currentQuestionData.correctAnswer;
 
   feedbackElement.innerHTML = `
-    <div class="feedback-section user-response">
-      <h3>La tua risposta:</h3>
-      <p>${userAnswer}</p>
-    </div>
-    <div class="feedback-section model-response">
-      <h3>Risposta consigliata per confronto:</h3>
-      <p>${correctAnswer}</p>
-    </div>
-  `;
+  <div class="feedback-section user-response">
+    <h3>La tua risposta</h3>
+    <p>${userAnswer}</p>
+  </div>
+  <div class="feedback-section model-response">
+    <h3>Risposta consigliata</h3>
+    ${formatAnswer(correctAnswer)}
+  </div>
+`;
+
 
   feedbackElement.className = "feedback info"; // Useremo una nuova classe 'info' per uno stile neutro
   feedbackElement.style.display = "block";
@@ -349,6 +350,36 @@ const goToHome = () => {
   resetLocalStorage(); // Resetta tutte le risposte salvate
   updateScoreCounters(); // Resetta i contatori visualizzati
 };
+
+// Converte testo multilinea in lista leggibile
+function formatAnswer(text) {
+  if (!text) return "";
+
+  const t = text.trim();
+
+  let parts;
+  if (/\n/.test(t)) {
+    // righe già spezzate
+    parts = t.split(/\n+/);
+  } else if (/\([a-z]\)/i.test(t)) {
+    // pattern (a) (b) (c) ...
+    parts = t.split(/\s*\([a-z]\)\s*/i).filter(Boolean);
+  } else if (t.includes(";")) {
+    // voci separate da ;
+    parts = t.split(/\s*;\s*/);
+  } else if (/\s-\s/.test(t)) {
+    // voci separate da " - "
+    parts = t.split(/\s-\s/);
+  } else {
+    // fallback: spezza in frasi con punto seguito da maiuscola
+    parts = t.split(/(?<=\.)\s+(?=[A-ZÀ-ÖØ-Þ])/).filter(Boolean);
+    // se è rimasto un unico elemento, non forzare l'elenco
+    if (parts.length <= 1) return `<p>${t}</p>`;
+  }
+
+  parts = parts.map(s => s.trim()).filter(Boolean);
+  return `<ul>${parts.map(s => `<li>${s}</li>`).join("")}</ul>`;
+}
 
 
 
