@@ -81,7 +81,7 @@ let quizData =
             correct: "Viene distrutto e ricreato da zero"
         },
         {
-            question: "Quale attributo è obbligatorio per tutti gli elementi <input>?",
+            question: "Quale attributo è obbligatorio per tutti gli elementi <'input>?",
             options: ["id", "name", "value", "placeholder"],
             correct: "name"
         },
@@ -114,7 +114,7 @@ let quizData =
             question: "Quale differenza principale distingue un selettore per classe da un selettore per id?",
             options: [
                 "La classe può essere usata per più elementi, l’id deve essere unico",
-                "L’id è sempre applicato agli elementi <div>",
+                "L’id è sempre applicato agli elementi <'div>",
                 "La classe richiede valori numerici, l’id stringhe",
                 "La classe viene usata solo nei form"
             ],
