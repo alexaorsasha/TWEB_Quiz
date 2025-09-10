@@ -65,7 +65,19 @@ let openQuestionsData = [
     },
     {
         question: "Confronta i tre modi di dichiarare funzioni in JavaScript (named, anonymous, arrow) e spiega vantaggi e svantaggi.",
-        correctAnswer: "Le funzioni named hanno un nome e sono riutilizzabili, ideali per debug e leggibilità. Le anonymous sono senza nome, usate come callback o funzioni inline. Le arrow sono più compatte, mantengono il this lessicale, ma non hanno arguments né possono essere usate come costruttori."
+        correctAnswer: "Le funzioni named hanno un nome e sono riutilizzabili, ideali per debug e leggibilità. Le anonymous sono senza nome, usate come callback o funzioni inline. Le arrow sono più compatte, mantengono il this lessicale, ma non hanno arguments né possono essere usate come costruttori. function dichiarata:\n" +
+            "function somma(a, b) {\n" +
+            "  return a + b;\n" +
+            "}\n" +
+            "\n" +
+            "function anonima:\n" +
+            "const sommaAnonima = function (a, b) {\n" +
+            "  return a + b;\n" +
+            "};\n" +
+            "\n" +
+            "arrow function ()=>:\n" +
+            "const sommaArrow = (a, b) => a + b;\n" +
+            "\n"
     },
     {
         question: "Descrivi come funziona il bubbling degli eventi e perché è utile in una pagina web.",
@@ -108,10 +120,6 @@ let openQuestionsData = [
         correctAnswer: "React vuole componenti puri perché devono produrre sempre lo stesso output a parità di input (props e state). Questo evita effetti collaterali imprevedibili, rende il rendering più efficiente e semplifica il debug e la prevedibilità dell’interfaccia."
     },
     {
-        question: "Mostra con un esempio come intercettare un evento click in React e modificare lo stato di un componente.",
-        correctAnswer: "Esempio: function Btn(){ const [count, setCount] = useState(0); return <'button onClick={()=>setCount(count+1)}>Cliccato {count} volte</button>; }. Ogni click incrementa lo stato e aggiorna la view."
-    },
-    {
         question: "Spiega le differenze tra modello single-thread event loop e modello multi-thread nella gestione delle richieste HTTP.",
         correctAnswer: "Il modello single-thread con event loop (Node.js) gestisce le richieste in asincrono, delegando le operazioni I/O e rispondendo senza blocchi. Il modello multi-thread (Apache) crea un thread per ogni richiesta: più intuitivo, ma con overhead maggiore in scenari di molte connessioni simultanee."
     },
@@ -132,16 +140,8 @@ let openQuestionsData = [
         correctAnswer: "(a) Server HTTP che contiene app: il server ospita più applicazioni e gestisce routing e cicli di vita (es. Tomcat con app Java). (b) App che contiene server HTTP: l’app stessa avvia e controlla il server (es. Express su Node.js). Differenza: chi ha il controllo principale, il server o l’app."
     },
     {
-        question: "Scrivi lo scheletro di un server Node.js base che risponde a GET e POST sulla stessa route.",
-        correctAnswer: "Esempio: const http=require('http'); http.createServer((req,res)=>{ if(req.method==='GET'){ res.end('GET'); } else if(req.method==='POST'){ res.end('POST'); } }).listen(3000);. Gestisce due tipi di richieste sulla stessa route."
-    },
-    {
         question: "Descrivi il ruolo del middleware in Express e come può influire sulla sicurezza di un’applicazione.",
         correctAnswer: "Un middleware è una funzione che intercetta richieste e risposte tra client e controller. Serve per logging, parsing, validazione, autenticazione. Aumenta la sicurezza bloccando richieste malevole, gestendo sessioni o applicando controlli di accesso centralizzati."
-    },
-    {
-        question: "Confronta i framework server-side PHP/Laravel, Python/Django e Java/Spring, evidenziando differenze di approccio.",
-        correctAnswer: "Laravel (PHP): semplice, veloce, adatto a CMS e siti medi. Django (Python): produttivo, con convenzioni forti, ideale per prototipi e applicazioni scalabili. Spring (Java): modulare e potente, adatto a sistemi enterprise complessi. La scelta dipende da linguaggio, team e contesto."
     },
     {
         question: "Spiega la differenza tra Jakarta, Spring e Spring Boot e come si relazionano tra loro.",
